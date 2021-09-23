@@ -1,0 +1,372 @@
+<!DOCTYPE html><html><head>
+      <title>ComponenteTransparency</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"],"imageFont":null},"root":"file:///C:/Users/Julio/.atom/packages/markdown-preview-enhanced/node_modules/@shd101wyy/mume/dependencies/mathjax"});
+        </script>
+        <script type="text/javascript" async="" src="file:///C:\Users\Julio\.atom\packages\markdown-preview-enhanced\node_modules\@shd101wyy\mume\dependencies\mathjax\MathJax.js" charset="UTF-8"></script>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 id="paso-1-qué-estudio-estoy-preregistrando">Paso 1: ¿Qué estudio estoy preregistrando?</h2>
+<style>
+div.blue { background-color:#ec8686; border-radius: 5px; padding: 20px;}
+</style>
+<div class="blue">
+<p><strong>¿Qué es un preregistro?</strong></p>
+<p>Los preregistros son una marca temporal sobre las decisiones que se han tomado respecto al diseño de investigación: qué hipótesis se pondrán a prueba, cómo se obtendrán los datos, cómo se analizarán etc. Su característica principal es que se efectúan antes de la recopilación y análisis de los datos, con tal de minimizar las oportunidades para realizar prácticas cuestionables de investigación (e.g.&nbsp;cambiar las hipótesis una vez que se conocen los resultados). De todos modos, existen formas de preregistrar estudios en otras situaciones, lo que lleva al primer paso de esta guía.</p>
+</div>
+<div style="text-align: justify">
+
+<p>El primer paso es <strong>clarificar las características de nuestro estudio</strong>. Esto es importante ya que la forma en la que preregistremos estará directamente relacionada al tipo de estudio que estamos efectuando, por ejemplo, si es un estudio experimental con datos primarios, o un estudio observacional con datos secundarios. También podría ser el caso que nuestro objetivo no sea elaborar un artículo original, sino que replicar uno ya existente. Considerando estas distintas situaciones, proponemos hacernos tres preguntas clave para dilucidar las características importantes de nuestro estudio:</p>
+<ol type="1">
+<li><em>¿Estoy publicando bajo el formato de publicación tradicional o el formato de registered reports?</em><br>
+</li>
+<li>En el caso de que sea el modelo tradicional: <em>¿Nuestro estudio es un artículo original o una replicación?</em><br>
+</li>
+<li>En el caso que sea un artículo original: <em>¿Usamos datos primarios o secundarios?</em></li>
+</ol>
+<style>
+div.blue { background-color:#ec8686; border-radius: 5px; padding: 20px;}
+</style>
+<div class="blue">
+<p><strong>¿Qué son los <em>registered reports</em>?</strong></p>
+<p>Los <em>registered reports</em> (en español, informes registrados), son un modelo alternativo de publicación donde la revisión por pares ocurre antes del análisis de datos, en contraste al modelo tradicional donde la revisión por pares ocurre con el artículo finalizado. En el modelo de <em>registered reports</em> la revisión se hace previo a la recolección y análisis de resultados con el objetivo de que el artículo sea aceptado por su pregunta de investigación novedosa y su diseño novedoso, en vez de por sus hallazgos. Un artículo que pasa la revisión por pares se le considera aceptado en principio (IPA, <em>in principle acceptance</em>) y una vez acabado (i.e.&nbsp;después de la recopilación y análisis de datos) debe pasar por otro proceso de revisión, donde se evalúa si el análisis se orientó bajo el diseño previamente establecido.</p>
+</div>
+<div style="text-align: justify">
+
+<p>La respuesta a estas preguntas estará estrechamente relacionada a las plantillas de pre-registro que usemos, lo que lleva al siguiente paso.</p>
+<h2 id="paso-2-qué-plantilla-debo-usar">Paso 2: ¿Qué plantilla debo usar?</h2>
+<div style="text-align: justify">
+
+<p>Una vez que tenemos claras las características de nuestro estudio, el siguiente paso es <strong>elegir nuestra plantilla</strong>. Las plantillas de preregistro son un conjunto de preguntas preestablecidas que orientan el registro de la información importante de nuestro estudio. Como equipo LISA proponemos categorizar las plantillas en cinco tipos: genéricas, para datos primarios, para datos secundarios, para replicaciones y para <em>registered reports</em>. Sus descripciones y el enlace a la plantilla se ven en la siguiente tabla:</p>
+<p class="heading" id="tabla-1-categorización-de-plantillas">Tabla 1. Categorización de plantillas</p>
+<table>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 11%">
+<col style="width: 61%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Categoría de la plantilla</th>
+<th>Nombre original plantilla</th>
+<th>Descripción</th>
+<th>Enlace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Genéricas</td>
+<td>OSF Standard o AsPredicted</td>
+<td>Se pueden usar para cualquier tipo de estudio, contienen preguntas generales. Las más conocidas son AsPredicted y OSF Estándar.</td>
+<td>- AsPredicted: https://aspredicted.org/ - OSF Estándar: https://osf.io/preprints/metaarxiv/epgjd/</td>
+</tr>
+<tr class="even">
+<td>Para datos primarios</td>
+<td>OSF-Standard Pre-Data Collection Registration</td>
+<td>Las plantillas genéricas son suficientes para este tipo de estudios. Sin embargo, existe una plantilla en particular que se utiliza en el caso de que el preregistro del estudio se haya hecho en un documento a parte y no en OSF. Esta plantilla registra la forma en la que se recolectaron los datos.</td>
+<td>https://osf.io/9j6d7/</td>
+</tr>
+<tr class="odd">
+<td>Para datos secundarios</td>
+<td>Template Preregistration of Preexisting Data</td>
+<td>Se utilizan cuando los datos a utilizar son secundarios, por ejemplo, bases de datos de encuestas o datos administrativos.</td>
+<td>https://osf.io/p26rq/</td>
+</tr>
+<tr class="even">
+<td>Para replicaciones</td>
+<td>Replication Recipe: Preregistration y Post-Compleition</td>
+<td>Se utilizan cuando el objetivo de un estudio es la replicación de otro estudio. Existe una plantilla para antes de elaborar la replicación y otra para después.</td>
+<td>- Antes de la replicación: https://osf.io/4jd46/ - Después de la replicación: https://osf.io/9rp6j/</td>
+</tr>
+<tr class="odd">
+<td>Para <em>registered reports</em></td>
+<td>Registered Reports Protocol</td>
+<td>Se utilizan cuando un artículo ha pasado la primera revisión por pares bajo el modelo de <em>registered reports</em>.</td>
+<td>https://osf.io/gm36s/</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify">
+
+<p>Las preguntas que nos hicimos en el primer paso nos ayudarán a escoger la plantilla de pre-registro. Un flujo de preguntas que orienta la elección de las plantillas se puede ver en la siguiente imagen:</p>
+<p><img src="C:/Work/transparency/input/images/flujopreg.png"></p>
+<h6 id="figura-1-flujo-de-preguntas-para-escoger-plantillas">Figura 1. Flujo de preguntas para escoger plantillas</h6>
+<h2 id="paso-3-cómo-relleno-la-plantilla">Paso 3: ¿Cómo relleno la plantilla?</h2>
+<div style="text-align: justify">
+
+<p>Una vez tenemos claro cuál es la plantilla que ocuparemos, es hora de <strong>rellenarla</strong>. El flujo de rellenado será distinto de acuerdo a la plantilla que hayamos escogido. En el video a continuación revisaremos cómo rellenar la plantilla de acuerdo a tres situaciones distintas: a) que hayamos escogido usar la plantilla génerica de AsPredicted, b) que hayamos escogido cualquier plantilla de OSF y c) qué ya tengamos un documento de preregistro y decidimos usar la plantilla complementaria.</p>
+</div></div></div></div></div>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
